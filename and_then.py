@@ -14,7 +14,7 @@ print(Err(x))
 
 def verbose_error_print(err: Err):
     match err:
-        case Err(KeyError(message)):
+        case Err(KeyError()):
             print("There was a key error", err.value)  # or some fancy message
         case Err(ZeroDivisionError()):
             print("There was division error", err.value)  # or some fancy message
