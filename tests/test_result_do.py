@@ -36,9 +36,7 @@ async def test_result_do_general_async() -> None:
     async def _get_output(is_suc1: bool, is_suc2: bool) -> Result[float, int]:
         resx, resy = await get_resx(is_suc1), await get_resy(is_suc2)
         out: Result[float, int] = do(
-            Ok(len(x) + int(y) + 0.5)
-            for x in resx
-            for y in resy
+            Ok(len(x) + int(y) + 0.5) for x in resx for y in resy
         )
         return out
 

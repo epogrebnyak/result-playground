@@ -201,6 +201,7 @@ class DoException(Exception):
     to simulate `and_then()` in the Err case: namely, we don't call `op`,
     we just return `self` (the Err).
     """
+
     def __init__(self, err: Err[E]) -> None:
         self.err = err
 
