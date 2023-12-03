@@ -1,7 +1,7 @@
 from result import Result, Ok, Err
 
 
-def inc(x) -> Result:
+def inc(x: int) -> Result[int, Exception]:
     return Ok(x + 1)
 
 
@@ -12,7 +12,7 @@ x = ZeroDivisionError("5 was divided by 0")
 print(Err(x))
 
 
-def verbose_error_print(err: Err):
+def verbose_error_print(err: Err[Exception]) -> None:
     match err:
         case Err(KeyError()):
             print("There was a key error", err.value)  # or some fancy message
@@ -22,7 +22,7 @@ def verbose_error_print(err: Err):
             print(err)  # or some fancy message
 
 
-def print_result(r: Result):
+def print_result(r: Result[int, Exception]) -> None:
     match r:
         case Ok(content):
             print("The result is ok:", content)
